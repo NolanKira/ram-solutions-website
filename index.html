@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RAM Solutions | Technology & IT Solutions</title>
+
+    <meta name="description" content="RAM Solutions provides professional IT, software, web, network, cloud and technology solutions for modern businesses.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #172033;
+            background: #ffffff;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(1120px, 92%);
+            margin: auto;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #edf0f5;
+        }
+
+        .nav-inner {
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #102a43;
+        }
+
+        .logo span {
+            color: #1677ff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 600;
+            color: #52606d;
+            transition: 0.25s;
+        }
+
+        .nav-links a:hover {
+            color: #1677ff;
+        }
+
+        .nav-button {
+            background: #1677ff;
+            color: white !important;
+            padding: 11px 20px;
+            border-radius: 8px;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            padding-top: 76px;
+            display: flex;
+            align-items: center;
+            background:
+                radial-gradient(circle at 80% 20%, rgba(22,119,255,0.12), transparent 35%),
+                linear-gradient(135deg, #f8fbff 0%, #ffffff 55%, #f3f8ff 100%);
+        }
+
+        .hero-content {
+            max-width: 760px;
+            padding: 90px 0;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 50px;
+            background: #eaf3ff;
+            color: #1677ff;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(46px, 7vw, 78px);
+            line-height: 1.02;
+            letter-spacing: -3px;
+            color: #102a43;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #1677ff;
+        }
+
+        .hero p {
+            max-width: 650px;
+            font-size: 19px;
+            color: #627d98;
+            margin-bottom: 34px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 24px;
+            border-radius: 9px;
+            font-weight: 700;
+            transition: 0.25s;
+        }
+
+        .btn-primary {
+            background: #1677ff;
+            color: white;
+            box-shadow: 0 10px 25px rgba(22,119,255,0.22);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #102a43;
+            border: 1px solid #d9e2ec;
+        }
+
+        .btn-secondary:hover {
+            border-color: #1677ff;
+            color: #1677ff;
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            max-width: 700px;
+            margin-bottom: 50px;
+        }
+
+        .section-label {
+            color: #1677ff;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: 42px;
+            line-height: 1.15;
+            color: #102a43;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .section-description {
+            color: #627d98;
+            font-size: 17px;
+        }
+
+        /* ABOUT */
+
+        .about {
+            background: #ffffff;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: #627d98;
+            font-size: 17px;
+            margin-bottom: 20px;
+        }
+
+        .about-box {
+            padding: 40px;
+            border-radius: 18px;
+            background: #f5f9ff;
+            border: 1px solid #e3edf8;
+        }
+
+        .about-box h3 {
+            color: #102a43;
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .about-box p {
+            color: #627d98;
+        }
+
+        /* SERVICES */
+
+        .services {
+            background: #f8fafc;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            border: 1px solid #e7edf4;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 45px rgba(16,42,67,0.08);
+            border-color: #cfe2ff;
+        }
+
+        .service-icon {
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: #eaf3ff;
+            color: #1677ff;
+            font-size: 23px;
+            margin-bottom: 22px;
+        }
+
+        .service-card h3 {
+            color: #102a43;
+            margin-bottom: 10px;
+            font-size: 19px;
+        }
+
+        .service-card p {
+            color: #627d98;
+            font-size: 14px;
+        }
+
+        /* WHY US */
+
+        .why-us {
+            background: #ffffff;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .why-card {
+            padding: 28px;
+            border-left: 3px solid #1677ff;
+            background: #f8fafc;
+        }
+
+        .why-card h3 {
+            margin-bottom: 8px;
+            color: #102a43;
+        }
+
+        .why-card p {
+            color: #627d98;
+            font-size: 14px;
+        }
+
+        /* CTA */
+
+        .cta {
+            padding: 80px 0;
+        }
+
+        .cta-box {
+            background: #102a43;
+            color: white;
+            border-radius: 22px;
+            padding: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .cta-box h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .cta-box p {
+            color: #bcccdc;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            background: #f8fafc;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 35px;
+            border: 1px solid #e7edf4;
+            border-radius: 15px;
+        }
+
+        .contact-card h3 {
+            color: #102a43;
+            margin-bottom: 15px;
+        }
+
+        .contact-card p {
+            color: #627d98;
+            margin-bottom: 8px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #0b1f33;
+            color: white;
+            padding: 45px 0;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .footer-logo span {
+            color: #5ba7ff;
+        }
+
+        .footer-text {
+            color: #9fb3c8;
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+                letter-spacing: -2px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .cta-box {
+                padding: 40px 30px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cta-box h2 {
+                font-size: 30px;
+            }
+
+            .section-title {
+                font-size: 34px;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+        <div class="container nav-inner">
+
+            <a href="#home" class="logo">
+                RAM<span>Solutions</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#why-us">Why Us</a>
+                <a href="#contact" class="nav-button">Contact</a>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <div class="badge">
+                    TECHNOLOGY • INNOVATION • SOLUTIONS
+                </div>
+
+                <h1>
+                    Technology that
+                    <span>moves business</span>
+                    forward.
+                </h1>
+
+                <p>
+                    RAM Solutions delivers reliable technology,
+                    software, infrastructure and digital solutions
+                    designed to help modern businesses grow.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#services" class="btn btn-primary">
+                        Explore Our Services
+                    </a>
+
+                    <a href="#contact" class="btn btn-secondary">
+                        Contact Us
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section class="about" id="about">
+
+        <div class="container">
+
+            <div class="about-grid">
+
+                <div class="about-text">
+
+                    <div class="section-label">
+                        About RAM Solutions
+                    </div>
+
+                    <h2 class="section-title">
+                        Practical technology.
+                        Real business results.
+                    </h2>
+
+                    <p>
+                        RAM Solutions is a technology solutions company
+                        focused on helping businesses use technology
+                        effectively, securely and efficiently.
+                    </p>
+
+                    <p>
+                        From software and websites to networks,
+                        servers and cloud infrastructure, we provide
+                        technology solutions designed around real
+                        business requirements.
+                    </p>
+
+                </div>
+
+                <div class="about-box">
+
+                    <h3>
+                        Our Approach
+                    </h3>
+
+                    <p>
+                        We believe technology should be reliable,
+                        scalable and easy to manage. Our goal is to
+                        understand each client's requirements and
+                        deliver solutions that create long-term value.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SERVICES -->
+
+    <section class="services" id="services">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <div class="section-label">
+                    What We Do
+                </div>
+
+                <h2 class="section-title">
+                    Technology solutions for modern businesses.
+                </h2>
+
+                <p class="section-description">
+                    From digital products to IT infrastructure,
+                    RAM Solutions provides a wide range of technology
+                    services.
+                </p>
+
+            </div>
+
+
+            <div class="services-grid">
+
+                <div class="service-card">
+
+                    <div class="service-icon">💻</div>
+
+                    <h3>
+                        Web Development
+                    </h3>
+
+                    <p>
+                        Professional websites and web applications
+                        designed for businesses and organizations.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">⚙️</div>
+
+                    <h3>
+                        Software Development
+                    </h3>
+
+                    <p>
+                        Custom software solutions designed around
+                        specific business workflows and requirements.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">🌐</div>
+
+                    <h3>
+                        Network Solutions
+                    </h3>
+
+                    <p>
+                        Network design, configuration, optimization
+                        and infrastructure solutions.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">☁️</div>
+
+                    <h3>
+                        Cloud & Servers
+                    </h3>
+
+                    <p>
+                        Cloud hosting, server deployment,
+                        migration and infrastructure management.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">🔐</div>
+
+                    <h3>
+                        Security Solutions
+                    </h3>
+
+                    <p>
+                        Technology and infrastructure solutions
+                        focused on security, reliability and protection.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">🛠️</div>
+
+                    <h3>
+                        IT Support
+                    </h3>
+
+                    <p>
+                        Professional IT support, maintenance and
+                        technology consulting for businesses.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- WHY US -->
+
+    <section class="why-us" id="why-us">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <div class="section-label">
+                    Why RAM Solutions
+                </div>
+
+                <h2 class="section-title">
+                    Technology built around your business.
+                </h2>
+
+            </div>
+
+
+            <div class="why-grid">
+
+                <div class="why-card">
+
+                    <h3>
+                        Reliable
+                    </h3>
+
+                    <p>
+                        Solutions designed with stability and
+                        reliability in mind.
+                    </p>
+
+                </div>
+
+
+                <div class="why-card">
+
+                    <h3>
+                        Professional
+                    </h3>
+
+                    <p>
+                        Professional technology solutions with
+                        clear and practical implementation.
+                    </p>
+
+                </div>
+
+
+                <div class="why-card">
+
+                    <h3>
+                        Scalable
+                    </h3>
+
+                    <p>
+                        Technology that can grow together with
+                        your business.
+                    </p>
+
+                </div>
+
+
+                <div class="why-card">
+
+                    <h3>
+                        Customer Focused
+                    </h3>
+
+                    <p>
+                        We focus on understanding business needs
+                        before designing the solution.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta">
+
+        <div class="container">
+
+            <div class="cta-box">
+
+                <div>
+
+                    <h2>
+                        Let's build something better.
+                    </h2>
+
+                    <p>
+                        Talk to RAM Solutions about your next
+                        technology project.
+                    </p>
+
+                </div>
+
+                <a href="#contact" class="btn btn-primary">
+                    Get in Touch
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact" id="contact">
+
+        <div class="container">
+
+            <div class="section-header">
+
+                <div class="section-label">
+                    Contact
+                </div>
+
+                <h2 class="section-title">
+                    Let's talk about your project.
+                </h2>
+
+                <p class="section-description">
+                    Have a technology requirement?
+                    We'd be happy to discuss it.
+                </p>
+
+            </div>
+
+
+            <div class="contact-grid">
+
+                <div class="contact-card">
+
+                    <h3>
+                        RAM Solutions
+                    </h3>
+
+                    <p>
+                        Technology • Innovation • Solutions
+                    </p>
+
+                    <p>
+                        🌐 ramsolutions.asia
+                    </p>
+
+                </div>
+
+
+                <div class="contact-card">
+
+                    <h3>
+                        Get in Touch
+                    </h3>
+
+                    <p>
+                        Email: contact@ramsolutions.asia
+                    </p>
+
+                    <p>
+                        Website: ramsolutions.asia
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="container footer-inner">
+
+            <div class="footer-logo">
+                RAM<span>Solutions</span>
+            </div>
+
+            <div class="footer-text">
+                © 2026 RAM Solutions. All rights reserved.
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
